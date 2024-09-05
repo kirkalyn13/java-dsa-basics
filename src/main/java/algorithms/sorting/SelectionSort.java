@@ -12,9 +12,16 @@ public class SelectionSort {
 
     private static void sort(int[] items) {
         for (int i = 0; i <= items.length - 1; i++) {
-            for (int j = 0; j <= items.length - 1; j++) {
-                if (items[i] < items[j]) swap(items, i, j);
+            int min = items[i];
+            int minIndex = i;
+
+            for (int j = i + 1; j < items.length; j++) {
+                if (min > items[j]) {
+                    min = items[j];
+                    minIndex = j;
+                }
             }
+            swap(items, i, minIndex);
         }
     }
 
